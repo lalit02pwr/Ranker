@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 	<link rel="stylesheet" href="reset.css">
+ -->
+	<link rel="stylesheet" href="style.css" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<!--<div class="mainHeading"><span id="heading">The Best Legal TV Shows</span>
+	</div> 
+	<div>
+		<div class="reference">Origally by reference
+		</div>
+		<ul class="list_items">
+			<li>8.2 votes</li>
+			<li>2.5k votes</li>
+			<li>200.2k views</li>
+			<li>106 items</li>
+		</ul>
+	</div>
+	<div class="rules_list">
+		<div>List Rules</div>
+		<div>Shows near the top must be only best Legal TV series</div>
+	</div> -->
+	<div class="about_show" style="display: none">
+		<p>We hope you love the products we recommend! Just so you know, Ranker may collect a share of sales or other compensation from the links on this page. Oh, and FYI — prices are accurate and items in stock as of time of publication.</p>
+		<p>Lawyers! Judges! Criminals! Verdicts! These are the very best legal shows on television, ranked from best to worst. This list of the greatest lawyer shows includes courtroom dramas and legal comedy shows. Popular legal TV shows have been a staple of television for years, so there's often debate (ha! debate, like courtrooms and stuff) about which is the most entertaining lawyer show of all time. Don't let your favorite legal television programs in history get to the bottom of the list- be sure to vote them up so they have the chance to reach the top spot.</p>
+		<p>What is the best legal show of all time? Law & Order: SVU? Regular Law & Order? Night Court? Cast your votes here.</p>
+		<p>What is your favorite lawyer show? This list of television shows about lawyers, and the law, is a great reference point if you're looking for a new show to binge on. Serial law dramas and procedural courtroom series about attorneys and their love issues are all here.</p>
+		<P>These legal TV shows (or best law TV shows) will make you want to quit your job and go out and buy a gavel for funsies!</P>
+	</div>
+	<div class="list_ordered" style="display:none">
+		<span id="list_ordered_by">list ordered by</span>
+		<button id="list_ordered_voters">all voters</button>
+		<button id="list_ordered_rankers">rerankers:4</button>
+		<button id="list_ordered_men">men</button>
+		<button id="list_ordered_women">women</button>
+		<button id="list_ordered_age">age</button>
+		<button id="list_ordered_region">region</button>
+		<button id="list_ordered_tv">tv programs</button>
+		<input id="list_ordered_search" type="text" placeholder="Search..">
+		<button id="list_ordered_version">rank your version</button>
+	</div>
+	<div class="showList">
+		<div class="showItem" style="display: none;">
+			<div class="voteActionArea">
+				<span class="serialNumber">1</span>
+				<div class="upvote">
+					<span class="arrowUp" onclick="voteCountUp(event, this)">&#8593</span>
+					<span class="voteCount">1234</span>
+				</div>
+				<div class="downvote">
+					<span class="arrowDown">&#8595</span>
+					<span class="voteCount">1234</span>
+				</div>
+			</div>
+			<div class="vr"></div>
+			<div class="movieDetailsContainer">
+				<a class="movieWikiLink" href="http://en.wikipedia.org/wiki/Reckless_(TV_series)" target="_blank">
+					<img src="suits.png" alt="" class="moviePoster">
+				</a>
+				<div class="movieDetails">
+					<h3 class="movieTitle">
+						this is movie title
+					</h3>
+					<h6 class="movieActors">jack, adrian, mia khali</h6>
+					<p class="movieDescription">
+						<span class="movieSortDescription">sort description about moveie
+						dfasd
+						fa
+						sdf
+						asd
+						fasdflkask dfjq34efj okfjewfljkafjq fkads
+					    </span>
+						<a href="http://en.wikipedia.org/wiki/Reckless_(TV_series)" target="_blank" class="showMore">...Show More</a>
+					</p>
+					<div class="watchNowButton">
+						<a href="http://en.wikipedia.org/wiki/Reckless_(TV_series)" target="_blank"><span class="iconInfo">i</span></a>
+						<a href="https://www.amazon.com/s/ref=nb_sb_noss?tag=Ranker[RNKRXXX]479-20&url=search-alias%3ddvd&field-keywords=Reckless" target="_blank">
+					    <button class="watchNowButtonClick">watch now
+						</button>
+					    </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tv_show_list"> 
+		<div class="list_item_vote">
+			<div class="list_item_number">
+			   <span class="list_item_number_series">1</span>
+		    </div>
+		    <div class="list_item_btn">
+			   <button class="list_item_btn_up"><span>&#8593</span> </button><span class="upvote">1,123</span>
+			   <button class="list_item_btn_down"><span>&#8595</span> </button><span class="downvote">201</span> 
+			</div>
+		</div>
+		<div class="list_item_image">
+			<img src="suits.png" alt="Suits" height="125" width="125" >
+		</div> 
+		<div class="about_suits">
+              <span id="suits">Suits</span>
+			  <p class="about_suits_properties">Gabriel Macht, Patrick J.Adams, Meghan Markle</p>
+			  <p class="about_suits_more">Suits is a USA Network legal drama created by Aaron Korsh that stars Patrick J.Adams as Michael "Mike"
+			  Ross and Gabriel Macht as Harvey Specter. The first episode debuted on June 23, ...more</p>
+		</div> 
+	</div> 
+	<script>
+	$(document).ready(function(){
+			var elem;
+			/*var res = [
+				{upvote:1,downvote:2,title:"movie title 1",description:"movie description 1",actors:"dfasdf ff"},
+				{upvote:110,downvote:2,title:"movie title 3",description:"movie description 1"},
+				{upvote:102,downvote:2,title:"movie title 2",description:"movie description 1"},
+				{upvote:101,downvote:2,title:"movie title 4",description:"movie description 1"},
+				{upvote:104,downvote:2,title:"movie title 5",description:"movie description 1"},
+				{upvote:103,ownvote:2,title:"movie title 6",description:"movie description 1"},
+				{upvote:109,downvote:2,title:"movie title 7",description:"movie description 1"},
+				{upvote:1,downvote:2,title:"movie title 8",description:"movie description 1"},
+				{upvote:1,downvote:2,title:"movie title 9",description:"movie description 1"},
+				{upvote:1,downvote:2,title:"movie title 9",description:"movie description 1"},
+			]
+			for(var i=0;i<10;i++){
+				elem =  $('.showItem:first').clone();
+				console.log("appending clone");
+				var title = elem.find('.movieTitle');
+				console.log($(title).text());
+				$(title).text($(title).text() + i);
+				//$('.showList').append(elem);	
+			}*/
+             $.get('https://c-5uwzmx78pmca09x24kikpm-ix78qx2ezivsmzx2ekwu.g00.ranker.com/g00/3_c-5eee.zivsmz.kwu_/c-5UWZMXPMCA09x24pbbx78ax3ax2fx2fkikpm-ix78q.zivsmz.kwux2ftqabax2f906883x2fqbmuax3ftquqbx3d03x26wnnambx3d38x26qvktclmx3ddwbmax2ceqsqBmfbx2czivsqvoax2cwx78mvTqabQbmuKwvbzqjcbwzax26x78zwx78mzbgNmbkpBgx78mx3dITTx26tqKikpmSmgx3dvcttx26camLmnictbVwlmTqvsax3dbzcmx26q98k.uizsx3dfpz_$/$/$/$', function(data){
+             	console.log("data",data);
+             	console.log(data.length);
+             	var movieList= data.listItems;
+             	var item ='';
+             	for(var i=0;i<movieList.length;i++){
+             		console.log('movie ',i,movieList[i])
+
+             		elem =  $('.showItem:first').clone();
+  					var title = elem.find('.movieTitle');
+ 					console.log($(title).text());
+					$(title).text(movieList[i].name);
+
+                    elem.find('.upvote .voteCount').text(movieList[i].votes.upVotes);
+                    console.log('upvote',movieList[i].votes.upVotes);
+                    elem.find('.downvote .voteCount').text(movieList[i].votes.downVotes);
+                    
+                    console.log(movieList[i].image.url);
+
+
+                    elem.find(".movieDetailsContainer .moviePoster").attr("src",movieList[i].image.url);
+                    elem.find('.movieDetails .movieActors').text(movieList[i].node.nodeProperty.propertyValue);
+                    elem.find(".movieDetails .movieSortDescription").text(movieList[i].node.nodeWiki.wikiText);
+
+                    elem.find(".movieDetailsContainer .movieWikiLink").attr("href", movieList[i].node.nodeWiki.wikiLink);
+                    elem.find('.watchNowButton .iconInfo').attr("href",movieList[i].node.nodeWiki.wikiLink);
+                    elem.find(".movieSortDescription .showMore").attr("href",movieList[i].node.nodeWiki.wikiLink);
+                    elem.find(".watchNowButton .watchNowButtonClick").attr("href",movieList[i].listItemLink.link); 
+
+					//$('.showList').append(elem);
+
+
+					item += `<div class="showItem">
+							<div class="voteActionArea">
+								<span class="serialNumber">`+parseInt(i+1)+`</span>
+								<div class="upvote">
+									<span class="arrowUp" onclick="voteCountUp(event, this)">&#8593</span>
+									<span class="voteCount">`+movieList[i].votes.upVotes+`</span>
+								</div>
+								<div class="downvote">
+									<span class="arrowDown">&#8595</span>
+									<span class="voteCount">`+movieList[i].votes.downVotes+`</span>
+								</div>
+							</div>
+							<div class="vr"></div>
+							<div class="movieDetailsContainer">
+								<a class="movieWikiLink" href="`+movieList[i].node.nodeWiki.wikiLink+`" target="_blank">
+									<img src="`+movieList[i].image.url+`" alt="" class="moviePoster">
+								</a>
+								<div class="movieDetails">
+									<h3 class="movieTitle">
+										`+movieList[i].name+`
+									</h3>
+									<h6 class="movieActors">`+movieList[i].node.nodeProperty.propertyValue+`</h6>
+									<p class="movieDescription">
+										<span class="movieSortDescription">
+										`+movieList[i].node.nodeWiki.wikiText+`
+									    </span>
+										<a href="`+movieList[i].node.nodeWiki.wikiLink+`" target="_blank" class="showMore">...Show More</a>
+									</p>
+									<div class="watchNowButton">
+										<a href="`+movieList[i].node.nodeWiki.wikiLink+`" target="_blank"><span class="iconInfo">i</span></a>
+										<a href="https://www.amazon.com/s/ref=nb_sb_noss?tag=Ranker[RNKRXXX]479-20&url=search-alias%3ddvd&field-keywords=Reckless" target="_blank">
+									    <button class="watchNowButtonClick" onclick="window.localtion.href=`+movieList[i].listItemLink.link+`,_blank">watch now
+										</button>
+									    </a>
+									</div>
+								</div>
+							</div>
+						</div>`
+						console.log("length of item",item.length)
+					$('.showList').append(item);
+					$('.showList').append(item);
+             	}
+             })
+
+             /*function add() {
+                    var counter = 0;
+                      counter += 1;
+                    return counter;
+                         } */
+                function voteCountUp(e, x){
+                	console.log('vvv', e, x);
+                	e.srcElement.nextElementSibling.innerHTML = + e.srcElement.nextElementSibling.innerHTML + 1;
+                // document.getElementsByClassName("voteCount").innerHTML = add();
+                 }
+            
+
+			// for(var i=0;i<res.length;i++){
+			// 	elem =  $('.showItem:first').clone();
+			// 	var title = elem.find('.movieTitle');
+			// 	console.log($(title).text());
+			// 	$(title).text(res[i].title);
+
+			// 	elem.find(".upvote .voteCount").text(res[i].upvote);
+			// 	elem.find(".downvote .voteCount").text(res[i].downvote);
+			// 	elem.find('.movieSortDescription').text(res[i].description);
+
+
+
+			// 	//$('.showList').append(elem);	
+			// }
+		})
+               
+                 
+
+            /*var x = voteCountUp()
+            document.getElementsByClassName("upvote").innerHTML = x;
+            var element = document.getElementsByClassName('.upvote.arrowUp');
+              function voteCountUp(){
+
+              }*/
+
+	</script>
+</body>
+</html>

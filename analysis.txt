@@ -1,0 +1,2 @@
+Ranker
+select document with ready function(its work after DOM loaded).
